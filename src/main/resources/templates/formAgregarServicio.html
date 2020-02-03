@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Listado de habitaciones</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+	<table>
+		<thead>
+			<tr>
+				<th>Nombre de Servicio</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="service : ${lista}">
+				<td th:text="${service.nombre}">...</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<form th:action="@{/agregarServicio}" th:object="${servicio}" method="post">
+	
+		Nombre de Servicio: <input th:field="*{nombre}" type="text">
+		
+		<br />
+		<br />
+		<br />
+
+		<button type="submit">Agregar</button>
+
+	</form>
+
+	<br />
+	<br />
+	<br />
+	
+	<a href="/">Inicio</a>
+
+</body>
+</html>

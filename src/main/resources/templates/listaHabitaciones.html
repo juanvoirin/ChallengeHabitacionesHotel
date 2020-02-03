@@ -1,0 +1,69 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Listado de habitaciones</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+	<table>
+		<thead>
+			<tr>
+				<th>Nombre de Habitacion</th>
+				<th>Cantidad de Camas</th>
+				<th>Limpiando</th>
+				<th>Manteniendo</th>
+				<th>Precio</th>
+				<th>Servicios</th>
+				<th>Ocupada</th>
+				<th>Cantidad de Ocupantes</th>
+				<th>Responsable</th>
+				<th>Cantidad de Dias</th>
+				<th>Fecha de Entrada</th>
+				<th>Mantener</th>
+				<th>Dejar Mantener</th>
+				<th>Limpiar</th>
+				<th>Dejar Limpiar</th>
+				<th>Alta</th>
+				<th>Baja</th>
+				<th>Modificar</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="ha : ${habitaciones}">
+				<td th:text="${ha.nombreHabitacion}">...</td>
+				<td th:text="${ha.cantCamas}">...</td>
+				<td th:text="${ha.limpieza}">...</td>
+				<td th:text="${ha.mantenimiento}">...</td>
+				<td th:text="${ha.precio}">...</td>
+				<td th:text="${ha.servicios}">...</td>
+				<td th:text="${ha.ocupada}">...</td>
+				<td th:text="${ha.ocupantes}">...</td>
+				<td th:text="${ha.responsable}">...</td>
+				<td th:text="${ha.diasOcupada}">...</td>
+				<td th:text="${ha.fechaEntrada}">...</td>
+				<td><a th:href="@{/mantenerHabitacion(idHabitacion=${ha.idHabitacion})}">Mantener</a></td>
+				<td><a th:href="@{/sacarMantenimientoHabitacion(idHabitacion=${ha.idHabitacion})}">Dejar Mantener</a></td>
+				<td><a th:href="@{/limpiarHabitacion(idHabitacion=${ha.idHabitacion})}">Limpiar</a></td>
+				<td><a th:href="@{/dejarLimpiarHabitacion(idHabitacion=${ha.idHabitacion})}">Dejar Limpiar</a></td>
+				<td><a th:href="@{/formAltaHabitacion(idHabitacion=${ha.idHabitacion})}">Alta</a></td>
+				<td><a th:href="@{/bajaHabitacion(idHabitacion=${ha.idHabitacion})}">Baja</a></td>
+				<td><a th:href="@{/formModificarHabitacion(idHabitacion=${ha.idHabitacion})}">Modificar</a></td>
+			</tr>
+		</tbody>
+	</table>
+
+	<br />
+	<br />
+	<br />
+	
+	<a href="formAgregarHabitacion">Agregar habitacion</a>
+	
+	<br />
+	<br />
+	<br />
+	
+	<a href="formAgregarServicio">Agregar servicio</a>
+
+</body>
+</html>

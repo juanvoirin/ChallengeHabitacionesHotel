@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Formulario de habitaciones</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    
+    <form th:action="@{/agregarHabitacion}" th:object="${habitacion}" method="post">
+	
+		Nombre de Habitacion: <input th:field="*{nombreHabitacion}" type="text">
+		
+		<br />
+		<br />
+		<br />
+		
+		Cantidad de camas:
+		
+		<br />
+
+		<select th:field="*{cantCamas}">
+
+			<option th:value="1"> 1 cama. </option>
+			<option th:value="2"> 2 camas. </option>
+			<option th:value="3"> 3 camas. </option>
+			<option th:value="4"> 4 camas. </option>
+			<option th:value="5"> 5 camas. </option>
+			<option th:value="6"> 6 camas. </option>
+
+		</select>
+		
+		<br />
+		<br />
+		<br />
+		
+		Servicios:
+		
+		<br />
+
+		<select th:field="*{servicios}" multiple="multiple">
+
+			<option th:each="list : ${listaServicios}" th:value="${{list.idServicio}}"
+			th:text="${list.nombre}">Servicio</option>
+
+		</select>
+		
+		<br />
+		<br />
+		<br />
+		
+		Precio: <input th:field="*{precio}" type="text">
+
+		<br />
+		<br />
+		<br />
+		
+
+		<button type="submit">Agregar</button>
+
+	</form>
+    
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Formulario de habitaciones</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    
+    <form th:action="@{/altaHabitacion(idHabitacion=${idHabitacion})}"
+    th:object="${cliente}" method="post">
+	
+		Nombre: <input th:field="*{nombre}" type="text">
+		
+		<br />
+		<br />
+		<br />
+		
+		Apellido: <input th:field="*{apellido}" type="text">
+		
+		<br />
+		<br />
+		<br />
+		
+		DNI: <input th:field="*{dni}" type="text">
+		
+		<br />
+		<br />
+		<br />
+		
+		Celular: <input th:field="*{celular}" type="text">
+
+		<br />
+		<br />
+		<br />
+		
+		Ciudad: <input th:field="*{ciudad}" type="text">
+
+		<br />
+		<br />
+		<br />
+		
+		Cantidad de ocupantes: <input name="ocupantes" type="text">
+
+		<br />
+		<br />
+		<br />
+		
+		Dias: <input name="dias" type="text">
+
+		<br />
+		<br />
+		<br />
+
+
+		<button type="submit">Alta</button>
+
+	</form>
+    
+</body>
+</html>
