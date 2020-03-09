@@ -1,5 +1,6 @@
 package hotel.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,7 +11,9 @@ public class Servicio {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="id")
 	private int idServicio;
+	@Column(name="servicio")
 	private String nombre;
 
 	

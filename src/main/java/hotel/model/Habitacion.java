@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,30 +13,42 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
+@Table(name="Habitacion")
 @Entity
 public class Habitacion {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="id")
 	private int idHabitacion;
+	@Column(name="nombre")	
 	private String nombreHabitacion;
+	@Column(name="cantCamas")
 	private int cantCamas;
+	@Column(name="precio")
 	private float precio;
+	@Column(name="ocupada")
 	private boolean ocupada;
+	@Column(name="limpieza")
 	private boolean limpieza;
+	@Column(name="mantenimiento")
 	private boolean mantenimiento;
+	@Column(name="ocupantes")
 	private int ocupantes;
+	@Column(name="diasOcupada")
 	private int diasOcupada;
+	@Column(name="fechaEntrada")
 	private LocalDate fechaEntrada;
+	@Column(name="cliente")
 	@OneToOne(cascade = { CascadeType.ALL })
 	@JoinColumn(name = "idCliente")
 	private Cliente responsable;
+	@Column(name="servicio")
 	@ManyToMany(cascade = { CascadeType.REFRESH, CascadeType.PERSIST})
 	@JoinColumn(name = "servicio")
 	private List<Servicio> servicios = new ArrayList<>();
-	 
-	//private String servicios;
 
 	public Habitacion() {
 	}
