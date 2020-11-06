@@ -41,7 +41,7 @@ public class Habitacion {
 	private int diasOcupada;
 	@Column(name="fechaEntrada")
 	private LocalDate fechaEntrada;
-	@Column(name="cliente")
+	//@Column(name="cliente")
 	@OneToOne(cascade = { CascadeType.ALL })
 	@JoinColumn(name = "idCliente")
 	private Cliente responsable;
